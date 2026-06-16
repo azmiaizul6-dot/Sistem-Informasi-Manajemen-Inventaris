@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   GLASSMORPHISM STYLE
+   ======================================== */
+
+:root {
+    --primary-color: #3B82F6;
+    --secondary-color: #10B981;
+    --danger-color: #EF4444;
+    --warning-color: #F59E0B;
+    --info-color: #06B6D4;
+    --dark-bg: #0F172A;
+    --dark-card: #1E293B;
+    --dark-text: #E2E8F0;
+}
+
+* {
+    @apply font-['Inter'];
+}
+
+body {
+    @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-screen;
+    transition: background-color 0.3s ease;
+}
+
+body.light-mode {
+    @apply bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50;
+}
+
+/* Glass Effect Base */
+.glass {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+body.light-mode .glass {
+    @apply bg-white/40 border-white/50;
+}
+
+/* Dark Glass */
+.glass-dark {
+    @apply bg-slate-900/40 backdrop-blur-xl border border-slate-700/30 rounded-2xl;
+    box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.3);
+}
+
+/* Text Glassmorphism */
+.text-glass {
+    @apply text-white/90;
+}
+
+body.light-mode .text-glass {
+    @apply text-slate-800;
+}
+
+/* ========================================
+   BUTTON STYLES
+   ======================================== */
+
+.btn {
+    @apply px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 inline-flex items-center justify-center gap-2 border border-transparent;
+}
+
+.btn-primary {
+    @apply bg-blue-500 hover:bg-blue-600 text-white shadow-lg hover:shadow-xl hover:scale-105;
+}
+
+.btn-secondary {
+    @apply bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg hover:shadow-xl hover:scale-105;
+}
+
+.btn-danger {
+    @apply bg-red-500 hover:bg-red-600 text-white shadow-lg hover:shadow-xl hover:scale-105;
+}
+
+.btn-warning {
+    @apply bg-amber-500 hover:bg-amber-600 text-white shadow-lg hover:shadow-xl hover:scale-105;
+}
+
+.btn-outline {
+    @apply border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50;
+}
+
+body.light-mode .btn-outline {
+    @apply border-slate-300 text-slate-700 hover:bg-slate-100 hover:border-slate-400;
+}
+
+.btn-sm {
+    @apply px-3 py-1.5 text-sm;
+}
+
+.btn-lg {
+    @apply px-8 py-3 text-lg;
+}
+
+/* ========================================
+   CARD STYLES
+   ======================================== */
+
+.card {
+    @apply glass p-6 mb-6;
+}
+
+.card-glass {
+    @apply glass p-5 rounded-xl;
+}
+
+.card-stat {
+    @apply glass p-6 rounded-2xl hover:shadow-2xl transition-all duration-300 cursor-pointer group;
+}
+
+.card-stat:hover {
+    transform: translateY(-5px);
+}
+
+/* ========================================
+   INPUT STYLES
+   ======================================== */
+
+.input-base {
+    @apply w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-300;
+}
+
+body.light-mode .input-base {
+    @apply bg-white/80 border-slate-200 text-slate-900 placeholder-slate-400 focus:ring-blue-400/50;
+}
+
+.input-base:focus {
+    @apply shadow-lg;
+}
+
+textarea.input-base {
+    @apply resize-none;
+}
+
+.label-base {
+    @apply block text-sm font-semibold text-white/80 mb-2;
+}
+
+body.light-mode .label-base {
+    @apply text-slate-700;
+}
+
+/* ========================================
+   BADGE STYLES
+   ======================================== */
+
+.badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold;
+}
+
+.badge-success {
+    @apply bg-emerald-500/20 text-emerald-200 border border-emerald-500/30;
+}
+
+.badge-danger {
+    @apply bg-red-500/20 text-red-200 border border-red-500/30;
+}
+
+.badge-warning {
+    @apply bg-amber-500/20 text-amber-200 border border-amber-500/30;
+}
+
+.badge-info {
+    @apply bg-cyan-500/20 text-cyan-200 border border-cyan-500/30;
+}
+
+.badge-pending {
+    @apply bg-slate-500/20 text-slate-200 border border-slate-500/30;
+}
+
+body.light-mode .badge-success {
+    @apply bg-emerald-100 text-emerald-800 border-emerald-300;
+}
+
+body.light-mode .badge-danger {
+    @apply bg-red-100 text-red-800 border-red-300;
+}
+
+body.light-mode .badge-warning {
+    @apply bg-amber-100 text-amber-800 border-amber-300;
+}
+
+body.light-mode .badge-info {
+    @apply bg-cyan-100 text-cyan-800 border-cyan-300;
+}
+
+body.light-mode .badge-pending {
+    @apply bg-slate-100 text-slate-800 border-slate-300;
+}
+
+/* ========================================
+   TABLE STYLES
+   ======================================== */
+
+.table-glass {
+    @apply w-full border-collapse;
+}
+
+.table-glass thead {
+    @apply bg-white/10 backdrop-blur-md;
+}
+
+.table-glass thead th {
+    @apply px-4 py-3 text-left text-sm font-semibold text-white/80 border-b border-white/10;
+}
+
+.table-glass tbody tr {
+    @apply border-b border-white/10 hover:bg-white/5 transition-colors;
+}
+
+.table-glass tbody td {
+    @apply px-4 py-3 text-white/80;
+}
+
+body.light-mode .table-glass thead {
+    @apply bg-slate-100;
+}
+
+body.light-mode .table-glass thead th {
+    @apply text-slate-700 border-slate-200;
+}
+
+body.light-mode .table-glass tbody tr {
+    @apply border-slate-200 hover:bg-slate-50;
+}
+
+body.light-mode .table-glass tbody td {
+    @apply text-slate-700;
+}
+
+/* ========================================
+   FORM STYLES
+   ======================================== */
+
+.form-group {
+    @apply mb-5;
+}
+
+.form-row {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.form-row-3 {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+}
+
+/* ========================================
+   SIDEBAR & NAVIGATION
+   ======================================== */
+
+.sidebar {
+    @apply fixed left-0 top-0 h-screen w-64 glass-dark border-r border-slate-700/30 z-40 hidden lg:flex flex-col;
+}
+
+.sidebar.active {
+    @apply flex;
+}
+
+.sidebar-item {
+    @apply px-6 py-3 text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 flex items-center gap-3 cursor-pointer;
+}
+
+.sidebar-item.active {
+    @apply bg-blue-500/20 text-blue-400 border-r-4 border-blue-500;
+}
+
+.sidebar-divider {
+    @apply my-2 border-t border-white/10;
+}
+
+/* ========================================
+   TOPBAR
+   ======================================== */
+
+.topbar {
+    @apply fixed top-0 left-0 right-0 h-16 glass-dark border-b border-slate-700/30 px-6 flex items-center justify-between z-30;
+}
+
+.lg\:ml-64 {
+    @apply lg:ml-64;
+}
+
+/* ========================================
+   ANIMATION
+   ======================================== */
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse-slow {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 2s infinite;
+}
+
+/* ========================================
+   ALERT STYLES
+   ======================================== */
+
+.alert {
+    @apply glass p-4 rounded-xl mb-4 flex items-start gap-3;
+}
+
+.alert-success {
+    @apply bg-emerald-500/20 border border-emerald-500/30;
+}
+
+.alert-danger {
+    @apply bg-red-500/20 border border-red-500/30;
+}
+
+.alert-warning {
+    @apply bg-amber-500/20 border border-amber-500/30;
+}
+
+.alert-info {
+    @apply bg-cyan-500/20 border border-cyan-500/30;
+}
+
+.alert-icon {
+    @apply flex-shrink-0 w-5 h-5 mt-0.5;
+}
+
+.alert-message {
+    @apply text-white/90 text-sm;
+}
+
+body.light-mode .alert-success {
+    @apply bg-emerald-100 border-emerald-300;
+}
+
+body.light-mode .alert-danger {
+    @apply bg-red-100 border-red-300;
+}
+
+body.light-mode .alert-warning {
+    @apply bg-amber-100 border-amber-300;
+}
+
+body.light-mode .alert-info {
+    @apply bg-cyan-100 border-cyan-300;
+}
+
+body.light-mode .alert-message {
+    @apply text-slate-800;
+}
+
+/* ========================================
+   PAGINATION
+   ======================================== */
+
+.pagination {
+    @apply flex items-center justify-center gap-2 mt-6;
+}
+
+.pagination a,
+.pagination span {
+    @apply px-3 py-2 rounded-lg text-sm font-semibold text-white/80 hover:bg-white/10 transition-all duration-300;
+}
+
+.pagination .active {
+    @apply bg-blue-500 text-white;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .sidebar {
+        @apply w-full h-screen;
+    }
+    
+    body {
+        @apply lg:ml-0;
+    }
+}
+
+@media (max-width: 640px) {
+    .card {
+        @apply p-4;
+    }
+    
+    .btn {
+        @apply px-4 py-2 text-sm;
+    }
+    
+    .table-glass {
+        @apply text-xs;
+    }
+    
+    .table-glass td,
+    .table-glass th {
+        @apply px-2 py-2;
+    }
+}
